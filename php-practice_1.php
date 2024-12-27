@@ -26,12 +26,9 @@ echo '現在時刻は、' . date("Y年m月d日H時i分s秒") . 'です。';
 // Q4 条件分岐-1 if文
 
 $device = 'pico';
+if($device === 'windows' || $device === 'mac') {
+    echo '使用OSは、'."$device".'です。';
 
-if($device === 'windows') {
-    echo '使用OSは、windowsです。';
-}
-if($device === 'mac') {
-    echo '使用OSは、macです。';
 } else {
     echo 'どちらでもありません。';
 }
@@ -40,7 +37,7 @@ if($device === 'mac') {
 
 $age = 20;
 
-$message = ($age <= 18 ) ? '未成年です。' : '成人です。';
+$message = ($age < 18 ) ? '未成年です。' : '成人です。';
 
 echo $message;
 
@@ -56,7 +53,7 @@ echo ''. $kanto[3] . 'と' . $kanto[4] .'は関東地方の都道府県です。
 $kencho = ['新宿区','横浜市','千葉市','さいたま市','宇都宮市','前橋市','水戸市'];
 
 foreach ($kencho as $key => $value) {
-    echo $value ."\n";
+    echo $value . "\n";
 }
 
 // Q8 連想配列-2
@@ -83,11 +80,11 @@ $kencho = ['東京都'=>'新宿区', '神奈川県'=>'横浜市', '千葉県'=>'
            '埼玉県'=>'さいたま市', '栃木県'=>'宇都宮市', '群馬県'=>'前橋市', 
            '茨城県'=>'水戸市','石川県'=>'金沢市', '北海道'=>'札幌市'];
 
- foreach ($kencho as $key => $value) {
-     if($key === '石川県'|| $key === '北海道') {
-          echo "$key は関東地方ではありません。\n"; 
+ foreach ($kencho as $ken => $city) {
+     if($ken === '石川県'|| $ken === '北海道') {
+          echo "$ken は関東地方ではありません。\n"; 
      } else{
-         echo  "$key の県庁所在地は $value です。\n";
+         echo  "$ken の県庁所在地は $city です。\n";
      } 
  }
 
@@ -95,7 +92,7 @@ $kencho = ['東京都'=>'新宿区', '神奈川県'=>'横浜市', '千葉県'=>'
 
 function hello($name)
 {
-    echo $name . 'さん、こんにちは。'."\n";
+    echo $name . 'さん、こんにちは。'. "\n";
 }
 
 hello('中村');
@@ -119,10 +116,10 @@ $taxInPrice = calcTaxInPrice($price);
 
 function distinguishNum($num){
     if ($num % 2){
-        echo "$num は奇数です。"."\n";
+        echo "$num は奇数です。". "\n";
     }
     else {
-        echo "$num は偶数です。"."\n";
+        echo "$num は偶数です。". "\n";
     }
 }
 
@@ -134,19 +131,19 @@ function distinguishNum($num){
 function evaluteGrade($score){
     switch($score){
     case $score === 'A' || $score === 'B' :
-    echo '合格です。'."\n";
+    echo '合格です。'. "\n";
     break;
     
     case $score === 'C' :
-        echo '合格ですが追加課題があります。'."\n";
+        echo '合格ですが追加課題があります。'. "\n";
         break;
     
     case $score === 'D' :
-        echo '不合格です。'."\n";
+        echo '不合格です。'. "\n";
         break;
         
     default:
-        echo '判定不明です。講師に問い合わせてください。'."\n";
+        echo '判定不明です。講師に問い合わせてください。'. "\n";
         break;
     }
 }
